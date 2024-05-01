@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CourseBueno.Maui.Views.CourseView"
+             Title="Course View"
+             NavigatedTo="OnMount">
+    <VerticalStackLayout
+    Padding="30,0"
+    Spacing="25">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <!--Professor-->
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Text="{Binding ProfessorName}"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+            <!--Assignments-->
+            <Label
+                Grid.Row="1"
+                Grid.Column="1"
+                Text="Assignments"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+            <ListView
+                Grid.Row="2"
+                Grid.Column="1"
+                ItemsSource="{Binding Assignments}"
+                SelectedItem="{Binding SelectedAssignment}">
+            </ListView>
+            <Button
+                Grid.Row="3"
+                Grid.Column="1"
+                Text="View Assignment"
+                IsVisible="{Binding Path=IsAdd}"
+                Clicked="ViewAssignment" />
+            <!--Modules-->
+            <Label
+                Grid.Row="0"
+                Grid.Column="2"
+                Text="Modules"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+            <ListView
+                Grid.Row="1"
+                Grid.Column="2"
+                ItemsSource="{Binding Modules}"
+                SelectedItem="{Binding SelectedModule}">
+            </ListView>
+            <Button
+                Grid.Row="2"
+                Grid.Column="2"
+                Text="View Module"
+                Clicked="ViewModule" />
+            <Button
+                Grid.Row="0"
+                Grid.Column="0"
+                Text="Back"
+                Clicked="BackClicked" />
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

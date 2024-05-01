@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CourseBueno.Maui.Views.PersonSelectionView"
+             NavigatedTo="OnMount"
+             Title="Select">
+    <VerticalStackLayout
+    Padding="30,0"
+    Spacing="25">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <ListView
+                Grid.Row="0"
+                Grid.Column="1"
+                ItemsSource="{Binding People}"
+                SelectedItem="{Binding SelectedPerson}">
+            </ListView>
+            <Button
+                Grid.Row="0"
+                Grid.Column="2"
+                Text="Create"
+                IsVisible="{Binding Path=IsAdd}"
+                Clicked="CreateClicked" />
+            <Button
+                Grid.Row="1"
+                Grid.Column="2"
+                Text="Select"
+                Clicked="SubmitClicked" />
+            <Button
+                Grid.Row="2"
+                Grid.Column="2"
+                Text="Back"
+                Clicked="BackClicked" />
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

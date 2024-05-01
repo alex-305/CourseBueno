@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CourseBueno.Maui.Views.PersonInfoView"
+             NavigatedFrom="OnUnMount"
+             NavigatedTo="OnMount"
+             Title="Modify Person">
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <!--Name-->
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Text="Name"
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Center" />
+                <Entry
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Text="{Binding Path=Name, Mode=TwoWay}"></Entry>
+                <!--Classification-->
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Text="Classification"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center" />
+                <StackLayout
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    RadioButtonGroup.GroupName="Classifications"
+                    RadioButtonGroup.SelectedValue="{Binding Path=Classification, Mode=TwoWay}">
+                    <RadioButton Content="Freshman"
+                        IsVisible="{Binding Path=IsStudent}"
+                        Value="Freshman"/>
+                    <RadioButton Content="Sophomore"
+                        IsVisible="{Binding Path=IsStudent}"
+                        Value="Sophomore"/>
+                    <RadioButton Content="Junior"
+                        IsVisible="{Binding Path=IsStudent}"
+                        Value="Junior"/>
+                    <RadioButton Content="Senior"
+                        IsVisible="{Binding Path=IsStudent}"
+                        Value="Senior"/>
+                    <RadioButton Content="Professor"
+                        IsVisible="{Binding Path=IsFaculty}"
+                        Value="Professor"/>
+                    <RadioButton Content="Administrator"
+                        IsVisible="{Binding Path=IsFaculty}"
+                        Value="Administrator"/>
+                </StackLayout>
+                <Button
+                    Grid.Row="3"
+                    Grid.Column="2"
+                    Text="Confirm"
+                    Clicked="SubmitClicked" />
+                <Button
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Text="Cancel"
+                    Clicked="CancelClicked"/>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

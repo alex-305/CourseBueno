@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CourseBueno.Maui.Views.ModuleView"
+             Title="ModuleView">
+    <VerticalStackLayout
+        Padding="30,0"
+        Spacing="25">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Button
+                Grid.Row="0"
+                Grid.Column="0"
+                Text="Back"
+                Clicked="BackClicked" />
+            <!--Title-->
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Text="{Binding Title}"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+            <!--Module Contents-->
+            <Label
+                Grid.Row="0"
+                Grid.Column="2"
+                Text="Contents"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+            <ListView
+                Grid.Row="1"
+                Grid.Column="2"
+                ItemsSource="{Binding Contents}">
+            </ListView>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="CourseBueno.Maui.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:CourseBueno.Maui"
+    xmlns:local2="clr-namespace:CourseBueno.Maui.Views"
+    Shell.FlyoutBehavior="Disabled"
+    Title="CourseBueno.Maui">
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+    <ShellContent
+        Title="InstructorView"
+        ContentTemplate="{DataTemplate local2:InstructorView}"
+        Route="InstructorView" />
+    <ShellContent
+        Title="StudentView"
+        ContentTemplate="{DataTemplate local2:StudentView}"
+        Route="StudentView" />
+    <ShellContent
+        Title="PersonInfoView"
+        ContentTemplate="{DataTemplate local2:PersonInfoView}"
+        Route="PersonInfoView" />
+    <ShellContent
+        Title="CourseInfoView"
+        ContentTemplate="{DataTemplate local2:CourseInfoView}"
+        Route="CourseInfoView" />
+    <ShellContent
+        Title="PersonSelectionView"
+        ContentTemplate="{DataTemplate local2:PersonSelectionView}"
+        Route="PersonSelectionView" />
+
+</Shell>

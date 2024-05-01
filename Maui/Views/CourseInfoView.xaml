@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CourseBueno.Maui.Views.CourseInfoView"
+             NavigatedTo="OnMount"
+             Title="Course View">
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>    
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>     
+                    <ColumnDefinition Width="Auto"/>                         
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <!--Name-->
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="Name"
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Center" />
+                <Entry
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Text="{Binding Path=Name, Mode=TwoWay}"></Entry>
+                <!--Description-->
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Text="Description"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center" />
+                <Entry
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Text="{Binding Path=Description, Mode=TwoWay}"></Entry>
+                <!--Assignments-->
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    Text="Assignments"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    IsVisible="{Binding IsExistingCourse}"/>
+                <ListView
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    ItemsSource="{Binding Path=Assignments}"
+                    SelectedItem="{Binding Path=SelectedAssignment}"
+                    IsVisible="{Binding IsExistingCourse}">
+                </ListView>
+                <Button
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    Text="Add"
+                    Clicked="AddAssignmentClicked"
+                    IsVisible="{Binding IsExistingCourse}"/>
+                <Button
+                    Grid.Row="3"
+                    Grid.Column="2"
+                    Text="Edit"
+                    Clicked="EditAssignmentClicked"
+                    IsVisible="{Binding IsExistingCourse}"/>
+                <Button
+                    Grid.Row="4"
+                    Grid.Column="2"
+                    Text="Remove"
+                    Clicked="RemoveAssignmentClicked"
+                    IsVisible="{Binding IsExistingCourse}"/>
+                <!--Modules-->
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="3"
+                    Text="Module"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    IsVisible="{Binding IsExistingCourse}"/>
+                <ListView
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    ItemsSource="{Binding Path=Modules}"
+                    SelectedItem="{Binding Path=SelectedModule}"
+                    IsVisible="{Binding IsExistingCourse}">
+                </ListView>
+                <Button
+                    Grid.Row="2"
+                    Grid.Column="3"
+                    Text="Add"
+                    Clicked="AddModuleClicked"
+                    IsVisible="{Binding IsExistingCourse}"/>
+                <Button
+                    Grid.Row="3"
+                    Grid.Column="3"
+                    Text="Edit"
+                    Clicked="EditModuleClicked"
+                    IsVisible="{Binding IsExistingCourse}"/>
+                <Button
+                    Grid.Row="4"
+                    Grid.Column="3"
+                    Text="Remove"
+                    Clicked="RemoveModuleClicked"
+                    IsVisible="{Binding IsExistingCourse}"/>
+                <!--Roster-->
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="4"
+                    Text="Roster"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    IsVisible="{Binding IsExistingCourse}"/>
+                <ListView
+                    Grid.Row="1"
+                    Grid.Column="4"
+                    ItemsSource="{Binding Path=Roster}"
+                    SelectedItem="{Binding Path=SelectedStudent}"
+                    IsVisible="{Binding IsExistingCourse}">
+                </ListView>
+                <Button
+                    Grid.Row="2"
+                    Grid.Column="4"
+                    Text="Add" 
+                    Clicked="AddStudentClicked"
+                    IsVisible="{Binding IsExistingCourse}" />
+                <Button
+                    Grid.Row="3"
+                    Grid.Column="4"
+                    Text="Remove"
+                    Clicked="RemoveStudentClicked"
+                    IsVisible="{Binding IsExistingCourse}" />
+                <!--Submission Buttons-->
+                <Button
+                    Grid.Row="3"
+                    Grid.Column="5"
+                    Text="Save"
+                    Clicked="SubmitClicked" />
+                <Button
+                    Grid.Row="4"
+                    Grid.Column="5"
+                    Text="Back"
+                    Clicked="BackClicked"/>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
